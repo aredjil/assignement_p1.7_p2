@@ -6,9 +6,15 @@ import numpy as np
 import sys 
 
 # Handling the command line  
-assert int(len(sys.argv)) != 1 and int(len(sys.argv)) <= 2, "program needs one argument as the mode"
-# Getting the mode from the user
+assert int(len(sys.argv)) != 1 and int(len(sys.argv)) <= 2,"""
+Program needs one argument as the mode.
+Useage example:
+    python ./program <mode>
+Suppoerted mode:
+    1: f(x) = x
+"""
 mode = int(sys.argv[1])
+# Getting the mode from the user
 # Filling x values list 
 xval = np.arange(-5, 5.1, 0.1)
 # Function to fill the y values 
