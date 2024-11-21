@@ -15,6 +15,10 @@ xval = np.arange(-5, 5.1, 0.1)
 def f(x, mode):
     if(mode == 1):
         return x
+    elif mode == 2:
+        return x * x
+    elif mode == 3:
+        return x * x * x
     else:
         raise Exception("Sorry, the mode you passed is not supported") 
 
