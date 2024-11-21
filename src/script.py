@@ -12,6 +12,8 @@ Useage example:
     python ./program <mode>
 Suppoerted mode:
     1: f(x) = x
+    2: f(x) = x*x
+    3: f(x) = x * x * x
 """
 mode = int(sys.argv[1])
 # Getting the mode from the user
