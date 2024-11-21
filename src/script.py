@@ -15,6 +15,12 @@ xval = np.arange(-5, 5.1, 0.1)
 def f(x, mode):
     if(mode == 1):
         return x
+    elif mode == 2:
+        return np.sin(x)
+    elif mode == 3:
+        return np.cos(x)
+    elif mode == 4:
+        return np.tan(x)
     else:
         raise Exception("Sorry, the mode you passed is not supported") 
 
@@ -27,5 +33,5 @@ plt.xlabel("x")
 plt.xlim(-5, 5.1)
 plt.grid(True)
 # uncomment to save the result to a png file in the directory ../plots 
-plt.savefig(f"./plots/output_mode{mode}.png")
+# plt.savefig(f"./plots/output_mode{mode}.png")
 plt.show()
