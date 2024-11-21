@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np 
 # used to handle commandline args
 import sys 
-
 # Handling the command line  
 assert int(len(sys.argv)) != 1 and int(len(sys.argv)) <= 2,"""
 Program needs one argument as the mode.
@@ -19,9 +18,8 @@ Suppoerted mode:
     6: f(x) = tan(x)
 """
 modes_dict ={1:"x", 2:"x*x", 3:"x * x * x", 4:"sin(x)", 5:"cos(x)", 6:"tan(x)"}
-
-mode = int(sys.argv[1])
 # Getting the mode from the user
+mode = int(sys.argv[1])
 # Filling x values list 
 xval = np.arange(-3, 3.1, 0.1)
 # Function to fill the y values 
@@ -42,6 +40,7 @@ def f(x, mode):
         raise Exception("Sorry, the mode you passed is not supported") 
 # Filling the y values list 
 yval = f(xval, mode)
+
 def plot_list(xval, yval, mode):
     plt.plot(xval, yval, label=f"f(x) = {modes_dict[mode]}")
     plt.title("f(x)")
