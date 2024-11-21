@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import numpy as np 
 # used to handle commandline args
 import sys 
+
+def main():
+    pass 
 # Handling the command line  
 assert int(len(sys.argv)) != 1 and int(len(sys.argv)) <= 2,"""
 Program needs one argument as the mode.
@@ -20,10 +23,20 @@ Suppoerted mode:
 modes_dict ={1:"x", 2:"x*x", 3:"x * x * x", 4:"sin(x)", 5:"cos(x)", 6:"tan(x)"}
 # Getting the mode from the user
 mode = int(sys.argv[1])
+# checking if the passed mode is supported 
+assert mode in np.arange(1, 7, 1), """The mode you selected is not supported, please use one of the available modes
+Suppoerted mode:
+    1: f(x) = x
+    2: f(x) = x*x
+    3: f(x) = x * x * x
+    4: f(x) = sin(x)
+    5: f(x) = cos(x)
+    6: f(x) = tan(x)
+"""
 # Filling x values list 
 xval = np.arange(-3, 3.1, 0.1)
 # Function to fill the y values 
-def f(x, mode):
+def f(x:int, mode:int)->int:
     if mode == 1:
         return x
     elif mode == 2:
@@ -40,8 +53,7 @@ def f(x, mode):
         raise Exception("Sorry, the mode you passed is not supported") 
 # Filling the y values list 
 yval = f(xval, mode)
-
-def plot_list(xval, yval, mode):
+def plot_list(xval:np.array, yval:np.array, mode:int):
     plt.plot(xval, yval, label=f"f(x) = {modes_dict[mode]}")
     plt.title("f(x)")
     plt.ylabel("y")
@@ -53,3 +65,5 @@ def plot_list(xval, yval, mode):
     # plt.savefig(f"./plots/output_mode{mode}.png")
     return plt.show()
 plot_list(xval, yval, mode)
+if __name__ == "__main__":
+    main()
