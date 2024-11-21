@@ -14,6 +14,9 @@ Suppoerted mode:
     1: f(x) = x
     2: f(x) = x*x
     3: f(x) = x * x * x
+    4: f(x) = sin(x)
+    5: f(x) = cos(x)
+    6: f(x) = tan(x)
 """
 mode = int(sys.argv[1])
 # Getting the mode from the user
@@ -27,6 +30,11 @@ def f(x, mode):
         return x * x
     elif mode == 3:
         return x * x * x
+        return np.sin(x)
+    elif mode == 4:
+        return np.cos(x)
+    elif mode == 5:
+        return np.tan(x)
     else:
         raise Exception("Sorry, the mode you passed is not supported") 
 
@@ -39,5 +47,5 @@ plt.xlabel("x")
 plt.xlim(-5, 5.1)
 plt.grid(True)
 # uncomment to save the result to a png file in the directory ../plots 
-plt.savefig(f"./plots/output_mode{mode}.png")
+# plt.savefig(f"./plots/output_mode{mode}.png")
 plt.show()
