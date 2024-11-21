@@ -24,16 +24,17 @@ mode = int(sys.argv[1])
 xval = np.arange(-3, 3.1, 0.1)
 # Function to fill the y values 
 def f(x, mode):
-    if(mode == 1):
+    if mode == 1:
         return x
     elif mode == 2:
         return x * x
     elif mode == 3:
         return x * x * x
-        return np.sin(x)
     elif mode == 4:
-        return np.cos(x)
+        return np.sin(x)
     elif mode == 5:
+        return np.cos(x)
+    elif mode == 6:
         return np.tan(x)
     else:
         raise Exception("Sorry, the mode you passed is not supported") 
@@ -44,7 +45,7 @@ plt.plot(xval, yval, label="f(x) = x")
 plt.title("f(x)")
 plt.ylabel("y")
 plt.xlabel("x")
-plt.xlim(-5, 5.1)
+# plt.xlim(-5, 5.1)
 plt.grid(True)
 # uncomment to save the result to a png file in the directory ../plots 
 # plt.savefig(f"./plots/output_mode{mode}.png")
