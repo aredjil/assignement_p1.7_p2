@@ -18,6 +18,8 @@ Suppoerted mode:
     5: f(x) = cos(x)
     6: f(x) = tan(x)
 """
+modes_dict ={1:"x", 2:"x*x", 3:"x * x * x", 4:"sin(x)", 5:"cos(x)", 6:"tan(x)"}
+
 mode = int(sys.argv[1])
 # Getting the mode from the user
 # Filling x values list 
@@ -38,15 +40,17 @@ def f(x, mode):
         return np.tan(x)
     else:
         raise Exception("Sorry, the mode you passed is not supported") 
-
 # Filling the y values list 
 yval = f(xval, mode)
-plt.plot(xval, yval, label="f(x) = x")
-plt.title("f(x)")
-plt.ylabel("y")
-plt.xlabel("x")
-# plt.xlim(-5, 5.1)
-plt.grid(True)
-# uncomment to save the result to a png file in the directory ../plots 
-# plt.savefig(f"./plots/output_mode{mode}.png")
-plt.show()
+def plot_list(xval, yval, mode):
+    plt.plot(xval, yval, label=f"f(x) = {modes_dict[mode]}")
+    plt.title("f(x)")
+    plt.ylabel("y")
+    plt.xlabel("x")
+    plt.legend(loc="best")
+    # plt.xlim(-5, 5.1)
+    plt.grid(True)
+    # uncomment to save the result to a png file in the directory ../plots 
+    # plt.savefig(f"./plots/output_mode{mode}.png")
+    return plt.show()
+plot_list(xval, yval, mode)
