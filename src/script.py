@@ -20,3 +20,12 @@ def f(x, mode):
 
 # Filling the y values list 
 yval = f(xval, mode)
+plt.plot(xval, yval, label="f(x) = x")
+plt.title("f(x)")
+plt.ylabel("y")
+plt.xlabel("x")
+plt.xlim(-5, 5.1)
+plt.grid(True)
+# uncomment to save the result to a png file in the directory ../plots 
+plt.savefig(f"./plots/output_mode{mode}.png")
+plt.show()
