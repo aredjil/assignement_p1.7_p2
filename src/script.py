@@ -53,7 +53,8 @@ def f(x:int, mode:int)->int:
         raise Exception("Sorry, the mode you passed is not supported") 
 # Filling the y values list 
 yval = f(xval, mode)
-def plot_list(xval:np.array, yval:np.array, mode:int):
+
+def plot_list(xval:np.array, yval:np.array, mode:int, save=False)->plt.plot:
     plt.plot(xval, yval, label=f"f(x) = {modes_dict[mode]}")
     plt.title("f(x)")
     plt.ylabel("y")
@@ -62,8 +63,11 @@ def plot_list(xval:np.array, yval:np.array, mode:int):
     # plt.xlim(-5, 5.1)
     plt.grid(True)
     # uncomment to save the result to a png file in the directory ../plots 
-    # plt.savefig(f"./plots/output_mode{mode}.png")
+    if save:
+        plt.savefig(f"./plots/output_mode{mode}.png")
     return plt.show()
-plot_list(xval, yval, mode)
+# Plotting the results 
+plot_list(xval, yval, mode, True)
+
 if __name__ == "__main__":
     main()
