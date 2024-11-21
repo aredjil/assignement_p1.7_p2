@@ -18,7 +18,7 @@ Suppoerted mode:
 mode = int(sys.argv[1])
 # Getting the mode from the user
 # Filling x values list 
-xval = np.arange(-5, 5.1, 0.1)
+xval = np.arange(-3, 3.1, 0.1)
 # Function to fill the y values 
 def f(x, mode):
     if(mode == 1):
